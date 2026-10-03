@@ -18,7 +18,13 @@ Tamil playback requires an installed Tamil speech-synthesis voice. The app repor
 
 Before launch, have a Tamil teacher review sound models, vocabulary, progression and spoken/formal Tamil differences. Expand each course stage into teacher-reviewed lessons and add spaced review, native audio and parent-managed accounts. The 24-week plan is a flexible guide, not a guarantee of mastery.
 
-## Checks
+## Azure Tamil pronunciation assessment
+
+The official `microsoft-cognitiveservices-speech-sdk` dependency is installed and version-pinned in `package.json` and `package-lock.json`. Microsoft lists Tamil (India), `ta-IN`, in its [pronunciation assessment language support](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=pronunciation-assessment). Install dependencies with `npm ci`.
+
+The current microphone activity still uses browser recognized-text matching; installing the SDK does not enable Azure scoring. To enable assessment, create an Azure Speech resource in the Azure portal, retain its region, and store its key in a backend secret. Add an authenticated backend token endpoint before connecting the browser SDK, configure assessment for `ta-IN`, and validate scores with teacher-reviewed child recordings, particularly isolated letters and vowel-length contrasts. Never put the resource key in browser files or commit it. Azure usage is separate from Firebase and may incur charges.
+
+## Code checks
 
 Run `npm run check` and `npm test`. The tests validate 247-letter coverage, lesson quiz choices, word and sentence assembly, safe local storage recovery, and cloud progress merging. No package installation is required for these checks.
 
@@ -30,4 +36,4 @@ See [FIREBASE_SETUP.md](FIREBASE_SETUP.md) for step-by-step Firebase console ins
 
 Firebase Hosting: https://sololearning-23.web.app
 
-The default Firestore database was created by the Firebase CLI in `nam5` (United States). Anonymous sign-in, authenticated progress writes and reads, and denial of unauthenticated reads were verified. Local browser checks cover quizzes, letter counts, word building and mobile overflow. Live browser verification is limited by the execution environment proxy certificate setup.
+The default Firestore database is in `asia-south1` (Mumbai). It was migrated from `nam5` after a verified private backup; all six existing learner documents were restored and their fields checked. It remains eligible for the free tier, and deletion protection is enabled. Anonymous sign-in, authenticated progress writes and reads, and denial of unauthenticated reads were verified. Local browser checks cover quizzes, letter counts, word building and mobile overflow. Live browser verification is limited by the execution environment proxy certificate setup.
