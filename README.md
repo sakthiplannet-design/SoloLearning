@@ -25,3 +25,9 @@ Run `npm run check` and `npm test`. The tests validate 247-letter coverage, less
 ## Setup guide
 
 See [FIREBASE_SETUP.md](FIREBASE_SETUP.md) for step-by-step Firebase console instructions. Firebase Hosting configuration is included as an optional deployment target; this app can also be hosted on any HTTPS static host.
+
+## Deployment
+
+Firebase Hosting: https://sololearning-23.web.app
+
+The default Firestore database was created by the Firebase CLI in `nam5` (United States). Anonymous sign-in, authenticated progress writes and reads, and denial of unauthenticated reads were verified. Local browser checks cover quizzes, letter counts, word building and mobile overflow. Live browser verification is limited by the execution environment proxy certificate setup.
