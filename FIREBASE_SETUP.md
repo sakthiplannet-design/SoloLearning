@@ -24,7 +24,7 @@ The current app creates a separate anonymous identity for each browser. Clearing
 
 Open Build → Firestore Database → Create database. Choose Standard edition where offered and the default database ID `(default)`. Choose production mode rather than open test mode.
 
-Choose a region close to the users; for an India-based audience, choose an available Indian region. Database location generally cannot be changed later, so confirm before creating it. The free Spark plan should suffice for initial testing within its quotas. Storage, Functions and billing are not required by the current app.
+This project already has its default database in Mumbai (`asia-south1`); no new database is required. For other projects, choose a region close to the users. Database location generally cannot be changed later, so confirm before creating it. The free Spark plan should suffice for initial testing within its quotas. Storage, Functions and billing are not required by the current app.
 
 ## 5. Publish the access rules
 
